@@ -8,3 +8,6 @@ Developers:
 Arnel Lenteria
 
 Adones Pitogo
+
+
+Please report any bugs or recommendations. Any contribution to the development of this software is greatly appreciated :D

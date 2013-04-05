@@ -26,7 +26,11 @@ public class Config {
 
     public Config() {
 
-
+        initialize();
+        
+    }
+    
+    public static void initialize(){
         config = new File(configName);
         if (config.exists()) {
             try {
@@ -43,6 +47,7 @@ public class Config {
             createConfigTxt();
 
         }
+    
     }
 
     public static String getExcelName() {
@@ -137,7 +142,4 @@ public class Config {
         excleSheet.addCell(remarks);
     }
 
-     public static void main(String[] args){
-        System.out.println(DTR.getExcelName());
-    }
 }

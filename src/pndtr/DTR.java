@@ -17,7 +17,6 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 import jxl.write.*;
-import jxl.write.biff.RowsExceededException;
 
 /**
  *
@@ -57,9 +56,7 @@ public class DTR {
 
             aCopy.write();
             aCopy.close();
-        } catch (WriteException ex) {
-            Logger.getLogger(DTR.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
+        } catch (WriteException | IOException ex) {
             Logger.getLogger(DTR.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

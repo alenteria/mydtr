@@ -18,7 +18,7 @@ public class PNDTR {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new Config();
+        Config.initialize();
 
         DTR.addTimeIn();
         
