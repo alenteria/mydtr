@@ -113,6 +113,7 @@ public void setOutputFile(String inputFile) {
     label = new Label(column, row, s, times);
     sheet.addCell(label);
   }
+  
  private static void writeData(int row, int col,String val) throws IOException, WriteException{
       Workbook aWorkBook = null;
             try {
