@@ -91,34 +91,7 @@ public void setOutputFile(String inputFile) {
     
 
   }
-
-  private void createContent(WritableSheet sheet) throws WriteException,
-      RowsExceededException {
-    // Write a few number
-    for (int i = 1; i < 10; i++) {
-      // First column
-      addNumber(sheet, 0, i, i + 10);
-      // Second column
-      addNumber(sheet, 1, i, i * i);
-    }
-    // Lets calculate the sum of it
-    StringBuffer buf = new StringBuffer();
-    buf.append("SUM(A2:A10)");
-    Formula f = new Formula(0, 10, buf.toString());
-    sheet.addCell(f);
-    buf = new StringBuffer();
-    buf.append("SUM(B2:B10)");
-    f = new Formula(1, 10, buf.toString());
-    sheet.addCell(f);
-
-    // Now a bit of text
-    for (int i = 12; i < 20; i++) {
-      // First column
-      addLabel(sheet, 0, i, "Boring text " + i);
-      // Second column
-      addLabel(sheet, 1, i, "Another text");
-    }
-  }
+ 
 
   private void addCaption(WritableSheet sheet, int column, int row, String s)
       throws RowsExceededException, WriteException {
@@ -172,13 +145,13 @@ public void setOutputFile(String inputFile) {
             }
         Sheet sheet =  w.getSheet(0);    
         
-        int row = sheet.getRows();
+        int row = sheet.getRows()-1;
         int rowToAdd = row;
          
         
-            String date = (sheet.getCell(0, 0)).getContents();
-            String timeIn = (sheet.getCell(1, 0)).getContents();
-            String timeOut = (sheet.getCell(2,0)).getContents();
+            String date = (sheet.getCell(0, row)).getContents();
+            String timeIn = (sheet.getCell(1, row)).getContents();
+            String timeOut = (sheet.getCell(2,row)).getContents();
             
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat dayF = new SimpleDateFormat("MM-dd-yyyy");
@@ -203,7 +176,7 @@ public void setOutputFile(String inputFile) {
                 if(timeIn.trim().equals("")){
                     //Put the time in
                    writeData(rowToAdd,1,time);                    
-                }else{
+                }else if(timeOut.trim().equals("")){
                     //Put the timeOut
                     writeData(rowToAdd,2,time);
                 }
