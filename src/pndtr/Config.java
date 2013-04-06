@@ -39,6 +39,7 @@ public class Config {
                     excelName = a;
                     createSheet();
                 }
+                lnr.close();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
@@ -59,6 +60,7 @@ public class Config {
                     excelName = a;
                     
                 }
+                lnr.close();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
